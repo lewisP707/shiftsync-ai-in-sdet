@@ -10,8 +10,8 @@ const options = {
   provider: 'MoviesAPI',
   providerBaseUrl: `http://localhost:${port}`,
   pactBrokerToken: process.env.PACT_BROKER_TOKEN,
-  providerVersion: process.env.GITHUB_SHA,
-  providerVersionBranch: process.env.GITHUB_BRANCH,
+  providerVersion: '0.0.1',
+  providerVersionBranch: 'main',
   publishVerificationResult: true,
   stateHandlers: {
     'Has a movie with specific ID': (parameters) => {
