@@ -5,7 +5,7 @@ const app = express();
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/web.html'));
 
-  app.get('/movies.json', (req, res) => {
+  app.get('/movie/100', (req, res) => {
   res.sendFile(path.join(__dirname, '/movies.json'));
 });
 });

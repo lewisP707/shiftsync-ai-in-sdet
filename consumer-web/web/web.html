@@ -14,19 +14,23 @@
         <article id="article">
             <h4>Film: </h4>
             <p id="film">Fetch a file to change this text.</p>
-            <h4>Year: </h4>
-            <p id="year">Fetch a file to change this text.</p>
+            <h4>Date: </h4>
+            <p id="date">Fetch a file to change this text.</p>
         </article>
     </main>
     <script>
-        getText('movies.json');
+        getText('movie/100');
         async function getText(file) {
             await fetch(file).then(async function(response) {
                 const movies = await response.json();
                 return movies[0];
             }).then(function(json) {
                 document.getElementById("film").innerHTML = json.name;
-                document.getElementById("year").innerHTML = json.year;
+                let dateString = json.date.split('-');
+                let date = new Date(dateString[0], (dateString[1] - 1), dateString[2]);
+                let month = new Intl.DateTimeFormat('en', { month: 'long' }).format(date);
+                let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
+                document.getElementById("date").innerHTML = `${day} ${month} ${dateString[0]}`;
             }).catch(function(ex) {
             console.log('Parsing failed:', ex);
             });
