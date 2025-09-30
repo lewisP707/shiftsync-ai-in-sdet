@@ -19,7 +19,7 @@ const fetchSingleMovie = async (url, id) => {
 const addNewMovie = async (url, movieName, movieYear) => {
   const data = {
     name: movieName,
-    year: movieYear,
+    date: movieYear,
   };
   const response = await axios
     .post(`${url}/movies`, data)

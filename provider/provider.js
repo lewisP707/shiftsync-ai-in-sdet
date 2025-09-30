@@ -45,12 +45,12 @@ const importData = () => {
  *                    type: integer
  *                  name:
  *                    type: string
- *                  year:
+ *                  date:
  *                    type: integer
  *                example:
  *                  id: 1
  *                  name: James Bond
- *                  year: 2021
+ *                  date: 2021
  */
 server.get('/movies', (req, res) => {
   res.send(movies.getMovies());
@@ -81,12 +81,12 @@ server.get('/movies', (req, res) => {
  *                  type: integer
  *                name:
  *                  type: string
- *                year:
+ *                date:
  *                  type: integer
  *              example:
  *                id: 1
  *                name: James Bond
- *                year: 2021
+ *                date: 2021
  *      '400':
  *        description: Movie ID invalid
  *        content:
