@@ -146,7 +146,7 @@ server.post('/movies', (req, res) => {
     res.status(409).send({ error: `Movie ${req.body.name} already exists` });
   } else {
     movies.insertMovie(movie);
-    res.json(movie);
+    res.status(201).json(movie);
   }
 });
 
@@ -156,7 +156,7 @@ server.delete('/movie/:id', (req, res) => {
     res.status(404).send({ error: `Movie ${req.params.id} not found` });
   } else {
     movies.getMovies().filter(movie => movie.id !== req.params.id)
-    res.send({ message: `Movie ${req.params.id} has been deleted` });
+    res.sendStatus(204);
   }
 });
 
