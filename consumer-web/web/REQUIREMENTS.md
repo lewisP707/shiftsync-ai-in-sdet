@@ -13,8 +13,8 @@ So that I can see release date
 ### Requirements - UJ2
 
 **Given** a movie enthusiast is browsing the movies application  
-**When** they click on or select a specific movie from the movie list  
-**Then** the application displays the movie's details page/modal with the following information:
+**When** they select a specific movie from the movie list  
+**Then** the movie's details page is displayed with:
 - Movie title (Heading)
 - Release date ("15-01-2024")
 
