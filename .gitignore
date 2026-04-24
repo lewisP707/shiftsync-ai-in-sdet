@@ -3,3 +3,10 @@ logs
 cypress/pacts
 cypress/downloads
 output
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
