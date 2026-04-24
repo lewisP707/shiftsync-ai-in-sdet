@@ -12,7 +12,8 @@
     "start:provider": "cross-env PORT=3001 node provider/provider-service.js",
     "test:provider": "jest provider/provider-contract.spec.js --testTimeout=20000 --forceExit",
     "can:i:deploy:provider": "pact-broker can-i-deploy --pacticipant MoviesAPI --version=$GITHUB_SHA --to-environment production",
-    "record:provider:deployment": "pact-broker record-deployment --pacticipant MoviesAPI --version $GITHUB_SHA --environment production"
+    "record:provider:deployment": "pact-broker record-deployment --pacticipant MoviesAPI --version $GITHUB_SHA --environment production",
+    "bdd:test": "npx bddgen && npx playwright test"
   },
   "author": "",
   "license": "ISC",
