@@ -16,6 +16,19 @@ server.use(express.json());
 
 const movies = new Movies();
 
+function basicAuth(req, res, next) {
+    const authHeader = req.headers['authorization'];
+    if (!authHeader) {
+        return res.sendStatus(401); // Unauthorized
+    }
+
+    if (authHeader === 'yourAdminTokenHere') {
+        next();
+    } else {
+        res.sendStatus(401); // Unauthorized
+    }
+}
+
 // Load default data into the Movies class
 const importData = () => {
   const data = require('.././data/movies.json');
@@ -187,6 +200,8 @@ server.get('/swagger.json', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(specs);
 });
+
+server.use('/movies', basicAuth);
 
 module.exports = {
   server,
