@@ -7,19 +7,19 @@
 <body>
     <header class="container">
       <hgroup>
-        <h2>Movies</h2>
+        <h1>Movies</h1>
       </hgroup>
     </header>
     <main class="container">
         <article id="article">
-            <h4>Film: </h4>
+            <h2>Film: </h2>
             <p id="film">Fetch a file to change this text.</p>
-            <h4>Date: </h4>
+            <h4 data-testid="release-date">Date: </h4>
             <p id="date">Fetch a file to change this text.</p>
         </article>
     </main>
     <script>
-        getText('movie/100');
+        getText('/movie/100');
         async function getText(file) {
             await fetch(file).then(async function(response) {
                 const movies = await response.json();

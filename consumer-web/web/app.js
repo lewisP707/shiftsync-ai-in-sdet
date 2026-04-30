@@ -3,6 +3,10 @@ const path = require('path');
 const app = express();
 
 app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/movies.html'));
+});
+
+app.get('/movie/james-bond', (req, res) => {
   res.sendFile(path.join(__dirname, '/web.html'));
 
   app.get('/movie/100', (req, res) => {

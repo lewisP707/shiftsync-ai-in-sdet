@@ -3,8 +3,8 @@ import { defineConfig, devices } from '@playwright/test';
 import { defineBddConfig } from 'playwright-bdd';
 
 const testDir = defineBddConfig({
-  features: 'tests/movie.feature',
-  steps: 'tests/steps.js',
+  features: 'tests/movie-details.feature',
+  steps: 'tests/movie-details.steps.js',
 });
 
 /**
@@ -48,10 +48,10 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
+  webServer: {
+    command: 'npm run start:web',
+    url: 'http://localhost:5000',
+    reuseExistingServer: !process.env.CI,
+  },
 });
 
