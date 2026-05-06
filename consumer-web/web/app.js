@@ -3,8 +3,13 @@ const path = require('path');
 const app = express();
 const { getMovie } = require('../api/getText.js');
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/movies.html'));
+app.get('/', async (req, res) => {
+  const movies = await getMovie('http://localhost:5000/movie/100');
+  res.render('movies', {
+    movies: movies,
+    title: "Movies",
+    header: "Movies"
+  });
 });
 
 app.engine('html', require('ejs').renderFile);
@@ -27,8 +32,14 @@ app.get('/movies', async function(req, res){
   });
 });
 
-app.get('/movie/james-bond', (req, res) => {
-  res.sendFile(path.join(__dirname, '/web.html'));
+app.get('/movie/james-bond', async (req, res) => {
+  const movie = await getMovie('http://localhost:5000/movie/100');
+  res.render('web', {
+    movie: movie,
+    title: "Movie",
+    header: "Movie"
+  });
+  //res.sendFile(path.join(__dirname, '/web.html'));
 });
 
 app.get('/movie/100', (req, res) => {
